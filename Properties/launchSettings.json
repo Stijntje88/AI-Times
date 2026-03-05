@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AI-Times (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AI-Times (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
