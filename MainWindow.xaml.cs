@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.UI.Xaml;
+using AI_Times.Data;
+using AI_Times.View.Home;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -26,6 +28,13 @@ namespace AI_Times
         public MainWindow()
         {
             InitializeComponent();
+
+            using var db = new AppDbContext();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+
+            contentFrame.Navigate(typeof(HomePage));
         }
     }
 }
+
