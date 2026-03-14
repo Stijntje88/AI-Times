@@ -1,0 +1,65 @@
+<Page
+    x:Class="AI_Times.View.Home.ArticleDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:AI_Times.Data.Models"
+    xmlns:converters="using:AI_Times.View.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:ImageUrlToBitmapImageConverter x:Key="ImageUrlConverter" />
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Spacing="20" Padding="20">
+            <Button Content="? Back"
+                    HorizontalAlignment="Left"
+                    Click="BackButton_Click" />
+
+            <TextBlock Text="{x:Bind Article.Title, Mode=OneWay}"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       TextWrapping="Wrap" />
+
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock Text="{x:Bind Article.Author, Mode=OneWay}"
+                           FontSize="12" />
+                <TextBlock Text="{x:Bind Article.FormattedPublishDate, Mode=OneWay}"
+                           FontSize="12" />
+            </StackPanel>
+
+            <Image Source="{x:Bind Article.Image1, Mode=OneWay, Converter={StaticResource ImageUrlConverter}}"
+                   Stretch="Uniform"
+                   MaxHeight="300" />
+
+            <TextBlock Text="Introduction"
+                       FontSize="18"
+                       FontWeight="SemiBold" />
+            <TextBlock Text="{x:Bind Article.Introduction, Mode=OneWay}"
+                       FontSize="14"
+                       TextWrapping="Wrap" />
+
+            <TextBlock Text="Full Story"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Margin="0,10,0,0" />
+            <TextBlock Text="{x:Bind Article.MiddleSection, Mode=OneWay}"
+                       FontSize="14"
+                       TextWrapping="Wrap" />
+
+            <Image Source="{x:Bind Article.Image2, Mode=OneWay, Converter={StaticResource ImageUrlConverter}}"
+                   Stretch="Uniform"
+                   MaxHeight="300" />
+
+            <TextBlock Text="Conclusion"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Margin="0,10,0,0" />
+            <TextBlock Text="{x:Bind Article.Conclusion, Mode=OneWay}"
+                       FontSize="14"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</Page>
