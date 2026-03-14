@@ -13,6 +13,12 @@ namespace AI_Times.Data.Models
 
         public string Title { get; set; }
 
+        public string Subtitle1 { get; set; }
+
+        public string Subtitle2 { get; set; }
+
+        public string Subtitle3 { get; set; }
+
         public string Image1 { get; set; }
 
         public string Image2 { get; set; }
@@ -22,6 +28,8 @@ namespace AI_Times.Data.Models
         public string MiddleSection { get; set; }
 
         public string Conclusion { get; set; }
+
+        public string Genre { get; set; }
 
         public DateTime PublishDate { get; set; }
 

@@ -24,7 +24,15 @@ namespace AI_Times.View.Converters
 
             try
             {
-                return new BitmapImage(uri);
+                var bmp = new BitmapImage(uri);
+                bmp.ImageFailed += (sender, e) =>
+                {
+                    if (sender is BitmapImage b)
+                    {
+                        b.UriSource = PlaceholderUri;
+                    }
+                };
+                return bmp;
             }
             catch
             {
