@@ -23,6 +23,8 @@ namespace AI_Times.Data.Models
 
         public string Conclusion { get; set; }
 
+        public string Genre { get; set; }
+
         public DateTime PublishDate { get; set; }
 
         public string FormattedPublishDate => PublishDate.ToString("MMM dd, yyyy");

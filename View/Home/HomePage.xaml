@@ -16,6 +16,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -30,8 +31,24 @@
             </StackPanel>
         </Border>
 
+        <!-- News Genres Header -->
+        <ScrollViewer Grid.Row="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" Margin="20,0,20,10">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button Content="Breaking News" Tag="Breaking News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Political News" Tag="Political News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Business and Economic" Tag="Business and Economic" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="International (World)" Tag="International (World)" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Technology News" Tag="Technology News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Science and Health" Tag="Science and Health" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Sports News" Tag="Sports News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Entertainment and Culture" Tag="Entertainment and Culture" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Lifestyle and Human-Interest" Tag="Lifestyle and Human-Interest" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+                <Button Content="Investigative Journalism" Tag="Investigative Journalism" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
+            </StackPanel>
+        </ScrollViewer>
+
         <ListView x:Name="ArticlesListView"
-                   Grid.Row="1"
+                   Grid.Row="2"
                    ItemsSource="{x:Bind Articles}"
                    SelectionMode="Single"
                    ItemClick="ArticlesListView_ItemClick"
@@ -76,6 +93,13 @@
                                            FontSize="12"
                                            FontWeight="SemiBold"
                                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                                <TextBlock Text="&#x2022;"
+                                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <TextBlock Text="{x:Bind Genre}"
+                                           FontFamily="Segoe UI, sans-serif"
+                                           FontSize="12"
+                                           FontWeight="SemiBold"
+                                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
                                 <TextBlock Text="&#x2022;"
                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
                                 <TextBlock Text="{x:Bind FormattedPublishDate}"

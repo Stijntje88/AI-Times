@@ -33,6 +33,10 @@
                            FontSize="14" 
                            FontWeight="Medium"/>
                 <TextBlock Text="•" FontSize="14"/>
+                <TextBlock Text="{x:Bind Article.Genre, Mode=OneWay}"
+                           FontSize="14" 
+                           FontWeight="Medium"/>
+                <TextBlock Text="•" FontSize="14"/>
                 <TextBlock Text="{x:Bind Article.FormattedPublishDate, Mode=OneWay}"
                            FontSize="14" />
             </StackPanel>

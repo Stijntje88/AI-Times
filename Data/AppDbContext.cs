@@ -133,6 +133,7 @@ ARTICLE REQUIREMENTS:
   * Multiple perspectives on the issue
   * IMPORTANT: Separate paragraphs with \n\n (double line breaks)
 - Conclusion: 150-200 words summarizing key takeaways and future outlook
+- Genre: Choose EXACTLY ONE from: Breaking News, Political News, Business and Economic, International (World), Technology News, Science and Health, Sports News, Entertainment and Culture, Lifestyle and Human-Interest, Investigative Journalism.
 
 IMAGE REQUIREMENTS:
 - Provide 2 real, relevant image URLs from LoremFlickr
@@ -151,6 +152,7 @@ You must respond with ONLY a valid JSON object. Use \n\n for paragraph breaks wi
   ""Introduction"": ""Your 200-250 word introduction. This should hook the reader and provide essential context about what happened, when, and why it matters. Include key details that make this newsworthy and set up the story that follows."",
   ""MiddleSection"": ""First paragraph of your main content (150-200 words).\n\nSecond paragraph with more details and analysis (150-200 words).\n\nThird paragraph discussing implications and expert views (150-200 words).\n\nFourth paragraph with additional context and perspectives (150-200 words).\n\nFifth paragraph concluding the main analysis (100-150 words). "",
   ""Conclusion"": ""Your 150-200 word conclusion that summarizes the key points, discusses what this means for the future, and leaves the reader with final thoughts about the significance of this development."",
+  ""Genre"": ""Technology News"",
   ""Image1"": ""https://loremflickr.com/1920/1080/technology,innovation"",
   ""Image2"": ""https://loremflickr.com/1920/1080/future,science""
 }
@@ -217,6 +219,7 @@ CRITICAL REQUIREMENTS:
                     Introduction = aiArticle.Introduction,
                     MiddleSection = aiArticle.MiddleSection,
                     Conclusion = aiArticle.Conclusion,
+                    Genre = aiArticle.Genre,
                     Image1 = image1,
                     Image2 = image2,
                     PublishDate = DateTime.Now,
