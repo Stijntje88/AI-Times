@@ -188,12 +188,16 @@ CRITICAL REQUIREMENTS:
                 Console.WriteLine("Cleaned JSON:");
                 Console.WriteLine(cleanedContent);
 
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    AllowTrailingCommas = true,
+                    ReadCommentHandling = JsonCommentHandling.Skip
+                };
+
                 var aiArticle = JsonSerializer.Deserialize<NewspaperArticle>(
                     cleanedContent,
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    }) ?? throw new Exception("Invalid response structure.");
+                    options) ?? throw new Exception("Invalid response structure.");
 
                 if (string.IsNullOrEmpty(aiArticle.Title))
                 {

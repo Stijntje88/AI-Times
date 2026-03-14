@@ -39,51 +39,60 @@
                    Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:NewspaperArticle">
-                    <Grid Margin="0,10" Padding="15" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                          CornerRadius="8" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                          BorderThickness="1"
+                    <Grid Margin="0,10" Padding="0,0,0,20" Background="Transparent"
+                          BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+                          BorderThickness="0,0,0,1"
                           PointerEntered="ArticleCard_PointerEntered"
                           PointerExited="ArticleCard_PointerExited">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
 
-                        <!-- Article Image -->
-                        <Border Grid.Column="0"
-                                Width="100"
-                                Height="100"
-                                CornerRadius="4"
-                                VerticalAlignment="Top">
-                            <Image Source="{Binding Image1, Converter={StaticResource ImageUrlConverter}}"
-                                   Stretch="Uniform"/>
-                        </Border>
-
                         <!-- Article Content -->
-                        <StackPanel Grid.Column="1" Margin="15,0,0,0">
+                        <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                            <!-- Category or Kicker could go here if available -->
+                            
                             <TextBlock Text="{x:Bind Title}"
-                                       FontSize="18"
-                                       FontWeight="SemiBold"
+                                       FontFamily="Georgia, Times New Roman, serif"
+                                       FontSize="24"
+                                       FontWeight="Bold"
+                                       Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                        TextWrapping="Wrap"
                                        Margin="0,0,0,8"/>
                             
                             <TextBlock Text="{x:Bind Introduction}"
-                                       FontSize="14"
+                                       FontFamily="Georgia, Times New Roman, serif"
+                                       FontSize="15"
                                        TextWrapping="Wrap"
                                        MaxLines="3"
                                        TextTrimming="CharacterEllipsis"
                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                       Margin="0,0,0,8"/>
+                                       Margin="0,0,0,12"/>
                             
-                            <StackPanel Orientation="Horizontal" Spacing="15">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
                                 <TextBlock Text="{x:Bind Author}"
+                                           FontFamily="Segoe UI, sans-serif"
                                            FontSize="12"
+                                           FontWeight="SemiBold"
+                                           Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                                <TextBlock Text="&#x2022;"
                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
                                 <TextBlock Text="{x:Bind FormattedPublishDate}"
+                                           FontFamily="Segoe UI, sans-serif"
                                            FontSize="12"
                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
                             </StackPanel>
                         </StackPanel>
+
+                        <!-- Article Image -->
+                        <Border Grid.Column="1"
+                                Width="200"
+                                Height="150"
+                                VerticalAlignment="Top">
+                            <Image Source="{Binding Image1, Converter={StaticResource ImageUrlConverter}}"
+                                   Stretch="UniformToFill"/>
+                        </Border>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

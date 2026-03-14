@@ -13,5 +13,15 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Frame x:Name="contentFrame" />
+    <Grid>
+        <Frame x:Name="contentFrame" />
+        
+        <Grid x:Name="LoadingOverlay" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="20">
+                <Image Source="ms-appx:///Assets/AI-Times-Logo - Outside-App.png" Height="150" Stretch="Uniform" />
+                <ProgressBar x:Name="LoadingProgressBar" IsIndeterminate="False" Minimum="0" Maximum="100" Value="0" Width="200" Height="4" />
+                <TextBlock x:Name="LoadingText" Text="Starting up..." HorizontalAlignment="Center" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Window>
