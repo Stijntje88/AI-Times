@@ -60,7 +60,7 @@ namespace AI_Times.View.Home
 
         private void GenreButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.Tag is string genre)
+            if (sender is FrameworkElement element && element.Tag is string genre)
             {
                 Frame?.Navigate(typeof(GenrePage), genre);
             }

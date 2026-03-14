@@ -46,9 +46,21 @@
                        Stretch="UniformToFill" />
             </Grid>
 
+            <TextBlock Text="{x:Bind Article.Subtitle1, Mode=OneWay}"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       FontFamily="Georgia"
+                       TextWrapping="Wrap" />
+
             <TextBlock Text="{x:Bind Article.Introduction, Mode=OneWay, Converter={StaticResource ParagraphConverter}}"
                        FontSize="18"
                        LineHeight="28"
+                       FontFamily="Georgia"
+                       TextWrapping="Wrap" />
+
+            <TextBlock Text="{x:Bind Article.Subtitle2, Mode=OneWay}"
+                       FontSize="24"
+                       FontWeight="SemiBold"
                        FontFamily="Georgia"
                        TextWrapping="Wrap" />
 
@@ -62,6 +74,12 @@
                 <Image Source="{x:Bind Article.Image2, Mode=OneWay, Converter={StaticResource ImageUrlConverter}}"
                        Stretch="UniformToFill" />
             </Grid>
+
+            <TextBlock Text="{x:Bind Article.Subtitle3, Mode=OneWay}"
+                       FontSize="24"
+                       FontWeight="SemiBold"
+                       FontFamily="Georgia"
+                       TextWrapping="Wrap" />
 
             <TextBlock Text="{x:Bind Article.Conclusion, Mode=OneWay, Converter={StaticResource ParagraphConverter}}"
                        FontSize="18"

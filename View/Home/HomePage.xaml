@@ -32,20 +32,20 @@
         </Border>
 
         <!-- News Genres Header -->
-        <ScrollViewer Grid.Row="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" Margin="20,0,20,10">
-            <StackPanel Orientation="Horizontal" Spacing="10">
-                <Button Content="Breaking News" Tag="Breaking News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Political News" Tag="Political News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Business and Economic" Tag="Business and Economic" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="International (World)" Tag="International (World)" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Technology News" Tag="Technology News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Science and Health" Tag="Science and Health" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Sports News" Tag="Sports News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Entertainment and Culture" Tag="Entertainment and Culture" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Lifestyle and Human-Interest" Tag="Lifestyle and Human-Interest" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-                <Button Content="Investigative Journalism" Tag="Investigative Journalism" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="16,8" FontSize="16" FontWeight="SemiBold" />
-            </StackPanel>
-        </ScrollViewer>
+        <CommandBar Grid.Row="1" Margin="20,0,20,10" Background="Transparent" IsDynamicOverflowEnabled="True" DefaultLabelPosition="Right">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Breaking News" Tag="Breaking News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Political News" Tag="Political News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Business and Economic" Tag="Business and Economic" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="International (World)" Tag="International (World)" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Technology News" Tag="Technology News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Science and Health" Tag="Science and Health" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Sports News" Tag="Sports News" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Entertainment and Culture" Tag="Entertainment and Culture" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Lifestyle and Human-Interest" Tag="Lifestyle and Human-Interest" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+                <AppBarButton Label="Investigative Journalism" Tag="Investigative Journalism" Click="GenreButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Margin="0,0,10,0" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
 
         <ListView x:Name="ArticlesListView"
                    Grid.Row="2"
