@@ -1,7 +1,6 @@
 {
-{
-  "profiles": {
-    "AI-Times (Package)": {
+"profiles": {
+  "AI-Times (Package)": {
       "commandName": "MsixPackage"
     }
   }
