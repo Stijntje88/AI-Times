@@ -20,15 +20,26 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Header with logo and tagline -->
+        <!-- Header with logo and login area -->
         <Border Grid.Row="0"
                 Background="{ThemeResource SystemControlAcrylicWindowBrush}"
                 Padding="20,16">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Image Source="ms-appx:///Assets/AI-Times-Logo-Inside-App.png"
-                       Height="96"
-                       Stretch="Uniform"/>
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="ms-appx:///Assets/AI-Times-Logo-Inside-App.png"
+                           Height="96"
+                           Stretch="Uniform"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="10">
+                    <TextBlock x:Name="UserInfoTextBlock" VerticalAlignment="Center" Visibility="Collapsed" Foreground="{ThemeResource TextFillColorPrimaryBrush}" FontFamily="Segoe UI, sans-serif" FontSize="14" FontWeight="SemiBold" />
+                    <Button x:Name="LogoutButton" Content="Logout" Click="LogoutButton_Click" Visibility="Collapsed" Background="#aa0000" Foreground="White" CornerRadius="8" Padding="15,8"/>
+                    <Button x:Name="LoginButton" Content="Login" Click="LoginButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="15,8"/>
+                </StackPanel>
+            </Grid>
         </Border>
 
         <!-- News Genres Header -->
@@ -106,6 +117,13 @@
                                            FontFamily="Segoe UI, sans-serif"
                                            FontSize="12"
                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <TextBlock Text="&#x2022;"
+                                           Foreground="{ThemeResource TextFillColorTertiaryBrush}"/>
+                                <TextBlock Text="{x:Bind VerifiedText}"
+                                           FontFamily="Segoe UI, sans-serif"
+                                           FontSize="12"
+                                           FontWeight="SemiBold"
+                                           Foreground="{x:Bind VerifiedBrush}"/>
                             </StackPanel>
                         </StackPanel>
 

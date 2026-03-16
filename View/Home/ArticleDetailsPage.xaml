@@ -32,14 +32,27 @@
                 <TextBlock Text="{x:Bind Article.Author, Mode=OneWay}"
                            FontSize="14" 
                            FontWeight="Medium"/>
-                <TextBlock Text="•" FontSize="14"/>
+                <TextBlock Text="â€¢" FontSize="14"/>
                 <TextBlock Text="{x:Bind Article.Genre, Mode=OneWay}"
                            FontSize="14" 
                            FontWeight="Medium"/>
-                <TextBlock Text="•" FontSize="14"/>
+                <TextBlock Text="â€¢" FontSize="14"/>
                 <TextBlock Text="{x:Bind Article.FormattedPublishDate, Mode=OneWay}"
                            FontSize="14" />
+                <TextBlock Text="â€¢" FontSize="14"/>
+                <TextBlock Text="{x:Bind Article.VerifiedText, Mode=OneWay}"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="{x:Bind Article.VerifiedBrush, Mode=OneWay}"/>
             </StackPanel>
+
+            <Button x:Name="VerifyButton"
+                    Content="Verify Article"
+                    Click="VerifyButton_Click"
+                    Visibility="Collapsed"
+                    Background="Green"
+                    Foreground="White"
+                    HorizontalAlignment="Left" />
 
             <Grid CornerRadius="8" MaxHeight="400" Margin="0,10,0,10">
                 <Image Source="{x:Bind Article.Image1, Mode=OneWay, Converter={StaticResource ImageUrlConverter}}"

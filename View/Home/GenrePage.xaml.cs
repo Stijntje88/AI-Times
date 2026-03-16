@@ -32,8 +32,15 @@ namespace AI_Times.View.Home
                 {
                     using (var db = new AppDbContext())
                     {
-                        var articles = await db.Articles
-                            .Where(a => a.Genre == genre)
+                        var query = db.Articles.Where(a => a.Genre == genre);
+
+                        if (App.LoggedInUser == null)
+                        {
+                            // Ensure visitors don't see verified articles
+                            query = query.Where(a => !a.Verified);
+                        }
+
+                        var articles = await query
                             .OrderByDescending(a => a.PublishDate)
                             .ToListAsync();
 

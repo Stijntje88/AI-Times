@@ -25,6 +25,31 @@ namespace AI_Times.View.Home
             InitializeComponent();
             Articles = new ObservableCollection<NewspaperArticle>();
             LoadArticles();
+            UpdateLoginState();
+        }
+
+        private void UpdateLoginState()
+        {
+            if (App.LoggedInUser != null)
+            {
+                LoginButton.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                LogoutButton.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                UserInfoTextBlock.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                UserInfoTextBlock.Text = $"Welcome, {App.LoggedInUser.Name}!";
+            }
+            else
+            {
+                LoginButton.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                LogoutButton.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                UserInfoTextBlock.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void LogoutButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            App.LoggedInUser = null;
+            UpdateLoginState();
+            LoadArticles();
         }
 
         private async void LoadArticles()
@@ -33,7 +58,15 @@ namespace AI_Times.View.Home
             {
                 using (var db = new AppDbContext())
                 {
-                    var articles = await db.Articles
+                    var query = db.Articles.AsQueryable();
+
+                    if (App.LoggedInUser == null)
+                    {
+                        // Ensure visitors don't see verified articles
+                        query = query.Where(a => !a.Verified);
+                    }
+
+                    var articles = await query
                         .OrderByDescending(a => a.PublishDate)
                         .ToListAsync();
 
@@ -64,6 +97,11 @@ namespace AI_Times.View.Home
             {
                 Frame?.Navigate(typeof(GenrePage), genre);
             }
+        }
+
+        private void LoginButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame?.Navigate(typeof(AI_Times.View.Account.LoginPage));
         }
 
         private void ArticleCard_PointerEntered(object sender, PointerRoutedEventArgs e)

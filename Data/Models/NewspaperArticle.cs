@@ -36,5 +36,15 @@ namespace AI_Times.Data.Models
         public string FormattedPublishDate => PublishDate.ToString("MMM dd, yyyy");
 
         public string Author { get; set; }
+
+        public bool Verified { get; set; } = false;
+
+        public int? VerifiedBy { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public string VerifiedText => Verified ? "✔ Verified" : "✖ Not Verified";
+
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public Microsoft.UI.Xaml.Media.SolidColorBrush VerifiedBrush => new Microsoft.UI.Xaml.Media.SolidColorBrush(Verified ? Microsoft.UI.Colors.Green : Microsoft.UI.Colors.Red);
     }
 }

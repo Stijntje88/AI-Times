@@ -13,6 +13,7 @@ namespace AI_Times.Data
     public class AppDbContext : DbContext
     {
         public DbSet<NewspaperArticle> Articles { get; set; }
+        public DbSet<User> Users { get; set; }
         
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -24,6 +25,23 @@ namespace AI_Times.Data
                     new MySqlServerVersion(new Version(8, 0, 30))
                 );
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            // Seed Admin User
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Name = "Admin Account",
+                    Email = "admin@ai-times.com",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
+                    Role = "Admin"
+                }
+            );
         }
 
         private static string? GetOpenAiApiKey()

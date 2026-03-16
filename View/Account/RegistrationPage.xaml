@@ -1,0 +1,48 @@
+<Page
+x:Class="AI_Times.View.Account.RegistrationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{ThemeResource SystemControlAcrylicWindowBrush}" Padding="20,16">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="ms-appx:///Assets/AI-Times-Logo-Inside-App.png" Height="96" Stretch="Uniform"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Form -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Padding="20">
+            <TextBlock Text="Register" FontSize="32" FontWeight="Bold" Margin="0,0,0,30" HorizontalAlignment="Center" Foreground="#002244"/>
+            
+            <TextBlock Text="Name" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="NameBox" Margin="0,0,0,15" PlaceholderText="Enter your name" />
+
+            <TextBlock Text="Email" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBox x:Name="EmailBox" Margin="0,0,0,15" PlaceholderText="Enter your email" />
+            
+            <TextBlock Text="Password" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <PasswordBox x:Name="PasswordBox" Margin="0,0,0,25" PlaceholderText="Enter a password" />
+            
+            <TextBlock x:Name="ErrorText" Foreground="Red" Margin="0,0,0,10" Visibility="Collapsed" TextWrapping="Wrap" />
+
+            <Button Content="Register" Click="RegisterButton_Click" Background="#002244" Foreground="White" CornerRadius="8" Padding="15,10" HorizontalAlignment="Stretch" Margin="0,0,0,15"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+                <TextBlock Text="Already have an account?" VerticalAlignment="Center" />
+                <HyperlinkButton Content="Login" Click="BackToLoginButton_Click" Foreground="#002244" FontWeight="Bold"/>
+            </StackPanel>
+
+            <HyperlinkButton Content="Back Home" Click="BackHomeButton_Click" Foreground="#555555" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

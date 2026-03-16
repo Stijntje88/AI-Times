@@ -26,6 +26,8 @@ namespace AI_Times
     /// </summary>
     public partial class App : Application
     {
+        public static Data.Models.User LoggedInUser { get; set; }
+
         private Window? _window;
 
         /// <summary>
